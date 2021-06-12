@@ -1,13 +1,31 @@
 <html>
 
 <body>
-    <ul>
-        <% for(let key in userData) { %>
-                <li>
-                     <%= `${key}: ${userData[key]}` %>
-                </li>
-                <% } %>
-    </ul>
+    <h1>user data page</h1>
+    <form action="/users/userdata" method="POST">
+    First name: <input type="text" name="fname" id="fname"><br>
+    Last name: <input type="text" name="lname" id="lname"><br>
+    User name: <input type="text" name="username" id="username"><br>
+    Password: <input type="text" name="pwd" id="pwd"><br>
+    Max Daily Actions: <input type="text" name="maxDailyActions" id="maxDailyActions"><br>
+    <input type="hidden" id="id" name="id">
+    <input type="submit" value="add" id="submit">
+   
+    </form>
+    <% if(typeof user=='object' ){ %>
+        <script>
+            let a = document.getElementById('fname').value = '<%= user.fname %>';
+            let c = document.getElementById('lname').value = '<%= user.lname %>';
+            let e = document.getElementById('maxDailyActions').value = '<%= user.maxDailyActions %>';
+            let f = document.getElementById('submit').value = 'update';
+            let g = document.getElementById('id').value = '<%= user.id %>';
+            let h = document.getElementById('username').value = '<%= user.userName %>';
+            let i = document.getElementById('pwd').value = '<%= user.pwd %>';
+
+
+        </script>
+
+        <% } %>
 </body>
 
 </html>

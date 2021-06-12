@@ -1,0 +1,29 @@
+<html>
+
+<body>
+    add new moive
+    <form action="/CreateMovie/" method="POST">
+       Movie Name: <input type="text" name="name"><br>
+        Language: <input type="text" name="language"><br>
+        genres: <br>
+        <ul>
+            <li>
+                Drama <input type="checkbox" name="genres"  value="Drama"><br>
+            </li>
+            <li>
+                Comedy <input type="checkbox" name="genres" value="Comedy"><br>
+            </li>
+            <li>
+                Family <input type="checkbox" name="genres" value="Family">
+            </li>
+        </ul>
+        <input type="submit" value="Create">
+    </form>
+    <% if(status!='') { %>
+        <div>
+            <%= status %>
+        </div>
+        <% } %>
+</body>
+
+</html>

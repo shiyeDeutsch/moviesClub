@@ -1,0 +1,26 @@
+<html>
+
+<body>
+
+    <a href="/users/add">add New</a>
+    <p></p>
+
+    <table border="1">
+        <% data.forEach(x=>{ %>
+            <tr>
+                <td>
+                    <%= x.userName %>
+                </td>
+                <td><a href="/users/dalete/<%= x.id %>">
+                        dalete
+                    </a></td>
+                <td><a href="/users/update/<%= x.id %>">
+                        updata
+                    </a></td>
+            </tr>
+            <% }) %>
+    </table>
+
+</body>
+
+</html>

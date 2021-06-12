@@ -1,0 +1,28 @@
+{
+    "movies": [
+        {
+            "id": 250,
+            "name": "mornady",
+            "genres": [
+                "history"
+            ],
+            "language": "English",
+            "image": {
+                "medium": ""
+            }
+        }
+    ]
+}
+
+
+{
+    "id": 2,
+    "fname": "shua",
+    "lname": "deutsch",
+    "userName": "blm",
+    "pwd": "1234",
+    "createdDate": "",
+    "maxDailyActions": 2,
+    "dailyActions": 1,
+    "admin": false
+  }

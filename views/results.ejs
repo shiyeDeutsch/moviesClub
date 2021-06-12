@@ -1,0 +1,44 @@
+<html>
+
+<body>
+    <h1> results page</h1><br>
+    <a href="/menu">Back tomenu</a>
+    <div>
+        <table border="1">
+
+            <% results.selctedMovise.forEach(x=> { %>
+
+                <tr>
+                    <td>
+                        <img src="<%= x.image %>" alt="movie img" height="60px" width="60px">
+                        <a href="/searchMovie/moviedata/<%= x.id %>">
+                            <%= x.name %>
+                        </a>
+                    </td>
+                </tr>
+                <% }) %>
+        </table>
+      
+    </div>
+  
+    <% if( typeof results.moviseWithSameGenra=='object' ){ %>
+        <h3>movise With Same Genra</h3>
+    <table border="1">
+
+        <% results.moviseWithSameGenra.forEach(x=> { %>
+
+            <tr>
+                <td>
+                    <img src="<%= x.image.medium %>" alt="movie img" height="60px" width="60px">
+                    <a href="/searchMovie/moviedata/<%= x.id %>">
+                        <%= x.name %>
+                    </a>
+                </td>
+            </tr>
+            <% }) %>
+    </table>
+    <% } %>
+
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<html>
+
+<body>
+    <form action="/searchMovie/results" method="POST">
+        <h1>Search Movies Page</h1><br>
+        <input type="submit">
+        Enter movie name <input type="text" name="name"><br>
+        choose a language name <br> <input type="text" name="language"><br>
+
+        select a gener:
+        <% genreslist.forEach(x=>{ %>
+            <br>
+            <%= x %>: <input type="checkbox" value="<%= x %>" name="genres">
+                <% }) %>
+
+    </form>
+  <a href="/menu">Back</a>
+</body>
+
+</html>

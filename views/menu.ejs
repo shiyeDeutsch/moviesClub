@@ -1,0 +1,16 @@
+<html>
+
+<body>
+    <h1>menu page!</h1>
+ <h3>   Welcome <%= data.username %> <br></h3>
+    <a href="/searchMovie">Search a Movie </a> <br>
+    <a href="/CreateMovie">Create a Movie </a>
+    <p></p>
+    <% if(data.admin) { %>
+        <div>
+            <a href="/users/">edit user</a>
+        </div>
+        <% } %>
+</body>
+
+</html>

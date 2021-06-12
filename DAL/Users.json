@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "fname": "shua",
+        "lname": "deutsch",
+        "userName": "sd",
+        "pwd": "1234",
+        "createdDate": "",
+        "maxDailyActions": 2,
+        "dailyActions": 1,
+        "admin": true
+    },
+    {
+        "id": 2,
+        "fname": "bluma",
+        "lname": "deutsch",
+        "userName": "bluma",
+        "pwd": "1234",
+        "createdDate": "",
+        "maxDailyActions": 2,
+        "dailyActions": 1,
+        "admin": false
+    },
+    {
+        "id": 3,
+        "fname": "shalom",
+        "lname": "shalom",
+        "userName": "shal",
+        "pwd": "1234",
+        "createdDate": "2021-06-09T22:37:50.151Z",
+        "maxDailyActions": 2,
+        "dailyActions": 1,
+        "admin": false
+    }
+]

@@ -1,21 +1,33 @@
 var express = require('express');
+const session = require('express-session');
 var router = express.Router();
-let userBL = require('../models/usersBL')
+let loginBL = require('../models/loginBL')
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('login', { title: 'Express' });
+    res.render('login', { msg: '' });
 });
-router.post('/',async (req, res, next) => {
-    console.log (req.body)
-   if (userBL.checkIfUserExist(req.body)) {
-    
-        let data = await userBL.getusersMaster()
-        console.log(data)
-        res.render('users', { usersData: data })
+router.post('/loginReq', async function (req, res, next) {
+
+    let valid = await loginBL.isUserValid(req.body.username, req.body.pwd);
+    // console.log(valid)
+    if (valid.valid) {
+        if (valid.admin) {
+            session.admin = true;
+        }
+        else {
+            session.dailyActions = valid.dailyActions
+        }
+        session.valid = true;
+        session.userId = valid.id;
+        session.username = valid.username;
+        res.redirect('/menu');
     }
-    else{
-            res.send('not found')
+    else {
+        res.render('login', { msg: 'name or passowrd are not invalid ! ' })
     }
-    
-})
+});
+
 module.exports = router;
+
+

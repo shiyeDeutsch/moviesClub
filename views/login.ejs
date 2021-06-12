@@ -1,8 +1,17 @@
-<html><body>
-    <h1>log in page</h1>
-    <form action="/" method="POST">
+<html>
+
+<body>
+    <form action="/login/loginReq" method="POST">
+        <h1>login Page</h1><br>
         user name: <input type="text" name="username"><br>
         password: <input type="text" name="pwd"><br>
-        <input type="submit" value="login">
+        <input type="submit" value="login" name="user"> <br>
+
+
     </form>
-</body></html>
+    <% if(msg!='' ){ %>
+        <%= msg %>
+        <% } %>
+</body>
+
+</html>
