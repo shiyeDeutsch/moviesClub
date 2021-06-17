@@ -1,5 +1,5 @@
 var express = require('express');
-const session = require('express-session');
+// const session = require('express-session');
 var router = express.Router();
 let loginBL = require('../models/loginBL')
 
@@ -13,14 +13,14 @@ router.post('/loginReq', async function (req, res, next) {
     // console.log(valid)
     if (valid.valid) {
         if (valid.admin) {
-            session.admin = true;
+            req.session.admin = true;
         }
         else {
-            session.dailyActions = valid.dailyActions
+            req.session.dailyActions = valid.dailyActions
         }
-        session.valid = true;
-        session.userId = valid.id;
-        session.username = valid.username;
+        req.session.valid = true;
+        req.session.userId = valid.id;
+        req.session.username = valid.username;
         res.redirect('/menu');
     }
     else {

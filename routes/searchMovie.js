@@ -1,11 +1,11 @@
 var express = require('express');
 var moviesBL = require('../models/moviseBL');
-const session = require('express-session');
+// const session = require('express-session');
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', async function (req, res, next) {
-  if (session.valid) {
+  if (req.session.valid) {
     let genreslist = await moviesBL.getGenreslist();
     // console.log(genreslist)
     res.render('searchMovie', { genreslist })
@@ -17,14 +17,14 @@ router.get('/', async function (req, res, next) {
 });
 
 router.post('/results', async function (req, res, next) {  
-    if (session.valid)
+    if (req.session.valid)
      {
-      if (!session.admin)
+      if (!req.session.admin)
       {
-         session.dailyActions++;
-      if (session.dailyActions > session.maxDailyActions)
+        req.  session.dailyActions++;
+      if (req.session.dailyActions > req.session.maxDailyActions)
        {
-        session.valid = false;
+        req.  session.valid = false;
       }
       }
      
@@ -39,7 +39,7 @@ router.post('/results', async function (req, res, next) {
 });
 
 router.get('/moviedata/:id', async function (req, res, next) {
-  if (session.valid) {
+  if (req.session.valid) {
     let data = await moviesBL.getMovie(req.params.id)
     res.render('moviedata', { data })
   }
